@@ -11,7 +11,7 @@ node ("master") {
         
         echo 'Checkout source code from GitHub ...'
         retry(5){
-            git branch: 'master', credentialsId: 'GitHub', url: 'git@github.com/RashaidehMahmoud75/SpringMVCDemo.git'
+            git branch: 'master', url: 'git@github.com/RashaidehMahmoud75/SpringMVCDemo.git'
 		
         }
         
