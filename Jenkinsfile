@@ -27,7 +27,7 @@ node ("master") {
         stash includes: '**', excludes: '**/TestPlan.jmx', name: 'SOURCE_CODE'
     }
 }
- node ("TestMachine-ut") {
+ node ("TestMachine") {
         // we can also use: withEnv(['M2_HOME=/usr/share/maven', 'JAVA_HOME=/usr']) {}
         env.MAVEN_HOME = '/usr/share/maven'
         env.M2_HOME = '/usr/share/maven'
