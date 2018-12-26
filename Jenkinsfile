@@ -10,7 +10,7 @@ env.BN = VersionNumber([
 node ("master") {                  
     stage('Provision') {                
         echo 'PIPELINE STARTED'
-        step([$class: 'DockerBuilderControl', option: [$class: 'DockerBuilderControlOptionStart', cloudName: '', containerId: 'maven']])
+       
         echo 'Checkout source code from GitHub ...'
         retry(5){
             git 'https://github.com/RashaidehMahmoud75/SpringMVCDemo'
@@ -31,7 +31,7 @@ node ("master") {
 }
  node ("TestMachine") {
         // we can also use: withEnv(['M2_HOME=/usr/share/maven', 'JAVA_HOME=/usr']) {}
-	   agent docker
+	  
         env.MAVEN_HOME = '/usr/share/maven'
         env.M2_HOME = '/usr/share/maven'
         env.JAVA_HOME = '/usr'	 
