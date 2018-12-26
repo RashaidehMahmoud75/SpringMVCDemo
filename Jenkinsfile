@@ -10,7 +10,7 @@ env.BN = VersionNumber([
 node ("master") {                  
     stage('Provision') {                
         echo 'PIPELINE STARTED'
-        
+        step([$class: 'DockerBuilderControl', option: [$class: 'DockerBuilderControlOptionStart', cloudName: '', containerId: 'maven']])
         echo 'Checkout source code from GitHub ...'
         retry(5){
             git 'https://github.com/RashaidehMahmoud75/SpringMVCDemo'
