@@ -1,6 +1,5 @@
 
-pipeline {
-    agent any
+
 // change the project version (don't rely on version from pom.xml)
 env.BN = VersionNumber([
         versionNumberString : '${BUILD_MONTH}.${BUILDS_TODAY}.${BUILD_NUMBER}', 
@@ -32,6 +31,7 @@ node ("master") {
 }
  node ("TestMachine") {
         // we can also use: withEnv(['M2_HOME=/usr/share/maven', 'JAVA_HOME=/usr']) {}
+	   agent docker
         env.MAVEN_HOME = '/usr/share/maven'
         env.M2_HOME = '/usr/share/maven'
         env.JAVA_HOME = '/usr'	 
@@ -70,4 +70,4 @@ node ("master") {
             }
         }
     }
-}
+
